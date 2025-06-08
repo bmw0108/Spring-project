@@ -1,0 +1,164 @@
+{
+  "info": {
+    "name": "FitnessTracker Training API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Trainings",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/v1/trainings",
+          "protocol": "http",
+          "host": [
+            "localhost:8080"
+          ],
+          "path": [
+            "v1",
+            "trainings"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Trainings By User",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/v1/trainings/1",
+          "protocol": "http",
+          "host": [
+            "localhost:8080"
+          ],
+          "path": [
+            "v1",
+            "trainings",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Finished Trainings After Date",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/v1/trainings/finished/2024-05-18",
+          "protocol": "http",
+          "host": [
+            "localhost:8080"
+          ],
+          "path": [
+            "v1",
+            "trainings",
+            "finished",
+            "2024-05-18"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Trainings By Activity Type",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/v1/trainings/activityType?activityType=TENNIS",
+          "protocol": "http",
+          "host": [
+            "localhost:8080"
+          ],
+          "path": [
+            "v1",
+            "trainings",
+            "activityType"
+          ],
+          "query": [
+            {
+              "key": "activityType",
+              "value": "TENNIS"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Training",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": 1,\n  \"startTime\": \"2024-04-01T11:00:00\",\n  \"endTime\": \"2024-04-01T12:00:00\",\n  \"activityType\": \"RUNNING\",\n  \"distance\": 10.5,\n  \"averageSpeed\": 8.2\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/v1/trainings",
+          "protocol": "http",
+          "host": [
+            "localhost:8080"
+          ],
+          "path": [
+            "v1",
+            "trainings"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Update Training",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": 1,\n  \"startTime\": \"2024-04-01T13:00:00\",\n  \"endTime\": \"2024-04-01T14:00:00\",\n  \"activityType\": \"CYCLING\",\n  \"distance\": 20.0,\n  \"averageSpeed\": 15.0\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/v1/trainings/1",
+          "protocol": "http",
+          "host": [
+            "localhost:8080"
+          ],
+          "path": [
+            "v1",
+            "trainings",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Delete Training",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/v1/trainings/1",
+          "protocol": "http",
+          "host": [
+            "localhost:8080"
+          ],
+          "path": [
+            "v1",
+            "trainings",
+            "1"
+          ]
+        }
+      }
+    }
+  ]
+}
