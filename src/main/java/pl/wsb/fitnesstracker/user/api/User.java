@@ -37,13 +37,23 @@ public class User {
             final String firstName,
             final String lastName,
             final LocalDate birthdate,
-            final String email) {
-
+            final String email
+    ) {
         this.firstName = firstName;
-        this.lastName = lastName;
+        this.lastName  = lastName;
         this.birthdate = birthdate;
-        this.email = email;
+        this.email     = email;
     }
 
+    /**
+     * Updates this user’s mutable fields from another User instance.
+     *
+     * @param other the User whose data should be copied into this one
+     */
+    public void updateFrom(User other) {
+        this.firstName = other.getFirstName();
+        this.lastName  = other.getLastName();
+        this.birthdate = other.getBirthdate();
+        this.email     = other.getEmail();
+    }
 }
-

@@ -22,7 +22,7 @@ public class Training {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     @Column(name = "start_time", nullable = false)
@@ -35,24 +35,37 @@ public class Training {
     @Column(name = "activity_type", nullable = false)
     private ActivityType activityType;
 
-    @Column(name = "distance")
+    @Column(name = "distance", nullable = false)
     private double distance;
 
-    @Column(name = "average_speed")
+    @Column(name = "average_speed", nullable = false)
     private double averageSpeed;
 
     public Training(
-            final User user,
-            final Date startTime,
-            final Date endTime,
-            final ActivityType activityType,
-            final double distance,
-            final double averageSpeed) {
+            User user,
+            Date startTime,
+            Date endTime,
+            ActivityType activityType,
+            double distance,
+            double averageSpeed
+    ) {
         this.user = user;
         this.startTime = startTime;
         this.endTime = endTime;
         this.activityType = activityType;
         this.distance = distance;
         this.averageSpeed = averageSpeed;
+    }
+
+    /**
+     * Copy mutable fields from another Training.
+     */
+    public void updateFrom(Training other) {
+        this.user = other.getUser();
+        this.startTime = other.getStartTime();
+        this.endTime = other.getEndTime();
+        this.activityType = other.getActivityType();
+        this.distance = other.getDistance();
+        this.averageSpeed = other.getAverageSpeed();
     }
 }
